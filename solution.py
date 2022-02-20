@@ -33,6 +33,7 @@ def webServer(port=13331):
                 for i in range(0, len(outputdata)):
                     connectionSocket.send(outputdata[i].encode())
 
+                connectionSocket.send("HTTP/1.1 200 OK\r\n".encode())
                 connectionSocket.send("\r\n".encode())
                 connectionSocket.close()
             except IOError:
